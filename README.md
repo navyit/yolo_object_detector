@@ -74,6 +74,3 @@ python -m unittest tests.py -v
 sudo apt-get install python3-tk  # Для Debian/Ubuntu
 sudo dnf install python3-tkinter  # Для Fedora
 ```
-## 🔍 Дополнительно
-- Тесты: `tests.py` (запуск: `python tests.py`)
-- Требования для тестов: те же, что и для основного приложения
