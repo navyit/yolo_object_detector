@@ -13,13 +13,12 @@ class TestYOLOApp(unittest.TestCase):
         cls.root.withdraw()
         cls.app = YOLOApp(cls.root)
 
-        # Мокаем модель YOLO
         cls.app.net = MagicMock()
         cls.app.output_layers = ['mock_layer']
         cls.app.classes = ['person', 'car']
 
     def test_1_model_loading(self):
-        """Тест загрузки модели (мок)"""
+        """Тест загрузки модели"""
         with patch('cv2.dnn.readNet', return_value=MagicMock()) as mock_read:
             self.app.load_yolo()
             mock_read.assert_called_once()
@@ -35,7 +34,6 @@ class TestYOLOApp(unittest.TestCase):
 
     def test_3_video_processing(self):
         """Тест обработки видео с полной подменой VideoCapture"""
-
         class MockVideoCapture:
             def __init__(self, *args, **kwargs):
                 self.test_frame = np.zeros((416, 416, 3), dtype=np.uint8)
@@ -61,7 +59,7 @@ class TestYOLOApp(unittest.TestCase):
             self.app.video_source = 0
             self.app.toggle_detection()
 
-            # Проверяем что обработка запущена
+            # Проверяем, что обработка запущена
             self.assertTrue(self.app.is_running)
 
             # Имитируем обработку кадра
