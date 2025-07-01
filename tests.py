@@ -30,7 +30,7 @@ class TestYOLOApp(unittest.TestCase):
 
         with patch('cv2.dnn.blobFromImage') as mock_blob:
             mock_blob.return_value = np.zeros((1, 3, 416, 416))
-            result = self.app._create_blob(test_img)  # Предполагаем метод создания blob
+            result = self.app._create_blob(test_img)
             self.assertEqual(result.shape, (1, 3, 416, 416))
 
     def test_3_video_processing(self):
@@ -77,7 +77,7 @@ class TestYOLOApp(unittest.TestCase):
             self.app.video_source = 0
             self.app.toggle_detection()
             self.app.update_frame()
-            self.assertFalse(self.app.is_running)  # Должен остановиться при ошибке
+            self.assertFalse(self.app.is_running)
 
 
 if __name__ == "__main__":
