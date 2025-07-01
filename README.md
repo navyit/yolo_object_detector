@@ -1,6 +1,6 @@
 # YOLO Object Detection App
 
-Программа для детекции объектов на видео/камере с использованием YOLOv3-tiny. 
+Программа для детекции объектов на видео/камере с использованием YOLOv3-tiny.
 
 ###### *По умолчанию используется YOLOv3-tiny для максимальной производительности и работы в реальном времени на среднем CPU. При наличии GPU, ресурсов и в целях повышения точности можно перейти на YOLOv4-tiny или выше.
 
@@ -14,7 +14,7 @@ git clone https://github.com/navyit/yolo_object_detector.git
 cd yolo_object_detector 
 ```
 2. Установите зависимости:
-
+Должна быть установлена версия Python >= 3.8
 ```bash
 pip install -r requirements.txt
 ```
@@ -53,3 +53,9 @@ python object_detection.py
 
   * [coco.names](https://github.com/pjreddie/darknet/blob/master/data/coco.names)
 
+## Для Linux пользователей
+Если возникают ошибки с tkinter, выполните:
+```bash
+sudo apt-get install python3-tk  # Для Debian/Ubuntu
+sudo dnf install python3-tkinter  # Для Fedora
+```
